@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Extraordinary rooms with elegant,<br /> yet a a rustic atmosphere </h1>
+</div>
+
+
+@{
+    string[] RoomName = { "Single", "Double", "Tripple" };
+    string[] RoomDescription = { "A cozy and comfortable room designed for one guest. Ideal for solo travelers. ", "A spacious and elegant room for two guests, offering a queen-size or two twin beds for comfort.", "A versatile and roomy accommodation for three guests. Ideal for families or small groups. " };
+    string[] RoomImage = { "https://i.pinimg.com/736x/8f/9d/fe/8f9dfe628f40e65903c31ae7b3aad755.jpg", "https://i.pinimg.com/736x/2c/7e/f6/2c7ef61082c3e749b5939228d40d04cd.jpg", "https://i.pinimg.com/736x/b4/a5/24/b4a52488fa99108ac79a66d33e6c39ca.jpg" };
+}
+<div class="d-flex flex-wrap gap-3 justify-content-start" style="padding-left: 15vw; padding-top:2vw;">
+
+    @for (int i = 0; i< RoomName.Length; i++)
+    {
+        <div class="card" style="width: 18rem;">
+        <img class="card-img-top" style="height:20vw;" src="@RoomImage[i]" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">@RoomName[i]</h5>
+            <p class="card-text">@RoomDescription[i]</p>
+            <a href="#" class="btn btn-primary">View Room</a>
+        </div>
+        </div>
+
+    }
+</div>
+
