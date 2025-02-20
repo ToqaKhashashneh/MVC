@@ -19,19 +19,73 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Register">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Profile">Profile</a>
-                        </li>
+                    @*     <li class="nav-item"> *@
+                    @*         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a> *@
+                    @*     </li> *@
+                    @*     <li class="nav-item"> *@
+                    @*         <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Register">Register</a> *@
+                    @*     </li> *@
+                    @*     <li class="nav-item"> *@
+                    @*         <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Login</a> *@
+                    @*     </li> *@
+                    @*     <li class="nav-item"> *@
+                    @*         <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Profile">Profile</a> *@
+                    @*     </li> *@
+                    @* </ul> *@
+
+                        @if (string.IsNullOrEmpty(Context.Session.GetString("UserEmail")))
+                        {
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Register">Register</a>
+                            </li>
+                        }
+
+                        else
+                        {
+
+                            @if (Context.Session.GetString("LoggerType") == "Admin")
+
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="User" asp-action="Admin">Admin Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Admin" asp-action="Index">Admin Dashboard</a>
+                                </li>
+                            }
+                            else if (Context.Session.GetString("LoggerType") == "User")
+
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="User" asp-action="Profile">Profile</a>
+                                </li>
+
+                            }
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="User" asp-action="Logout">Logout</a>
+                            </li>
+
+
+
+
+                        }
+
+
                     </ul>
+
+
                 </div>
             </div>
         </nav>

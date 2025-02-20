@@ -1,0 +1,39 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Calc</title>
+</head>
+<body>
+
+
+    <form method="post" action="~/Calculator/HandleCalc">
+        <label>First number:</label>
+        <input type="number" name="number1" required />
+
+        <label>Second number:</label>
+        <input type="number" name="number2" required />
+
+        <label>Operation</label>
+        <select name="operation">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+
+        <button type="submit">Calc</button>
+    </form>
+
+        <h3>Result:@TempData["Result"]</h3>
+    
+    @if (TempData["Message"] != null)
+    {
+        <h3>Result: @TempData["Message"] </h3>
+    }
+
+
+</body>
+</html>

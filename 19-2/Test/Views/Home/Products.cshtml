@@ -1,0 +1,36 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Products</title>
+</head>
+<body>
+
+
+    @{
+        string[] ProductsName = { "Laptop", "Phones", "HeadPhones" };
+        string[] ProductsImage = { "https://cdn.thewirecutter.com/wp-content/media/2024/07/laptopstopicpage-2048px-3685-2x1-1.jpg?width=2048&quality=75&crop=2:1&auto=webp", "https://m.media-amazon.com/images/I/61cTi9MBqOL._AC_SL1500_.jpg", "https://static.independent.co.uk/2024/10/30/12/Wireless-headphones.jpg" };
+    }
+    <div class="d-flex flex-wrap gap-3 justify-content-start" style="padding-left: 15vw; padding-top:2vw;">
+
+        @for (int i = 0; i < ProductsName.Length; i++)
+        {
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" style="height:20vw;" src="@ProductsImage[i]" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@ProductsName[i]</h5>
+                    <a href=" @Url.Action("ProductsDetails", "Home")" class="btn btn-primary">View all</a>
+                </div>
+            </div>
+
+        }
+    </div>
+
+
+
+
+</body>
+</html>

@@ -30,20 +30,45 @@ namespace _19_2.Controllers
             }
         }
         [HttpPost]
-        public IActionResult HandleLogin(string email , string password)
+        public IActionResult HandleLogin(string email , string password, string rem)
         {
             string userEmail = HttpContext.Session.GetString("UserEmail");
             string userPassword = HttpContext.Session.GetString("UserPassword");
 
+
+            if (rem != null)
+            {
+                CookieOptions obj = new CookieOptions();
+                obj.Expires = DateTime.Now.AddDays(2);
+                Response.Cookies.Append("userInfo", userEmail, obj);
+            }
+
             if (email == userEmail && password == userPassword)
             {
+                HttpContext.Session.SetString("LoggerType", "User");
+                return RedirectToAction("Index", "Home");
+
+            }
+
+
+            if (email == "Admin@gmail.com" && password == "000")
+            {
+                HttpContext.Session.SetString("Email", "Admin@gmail.com");
+                HttpContext.Session.SetString("Password", "000");
+
+
+                HttpContext.Session.SetString("LoggerType", "Admin");
+
                 return RedirectToAction("Index", "Home");
             }
-            else
-            {
+           
                 TempData["LoginMsg"] = "Invalid Email or Password! Try Again.";
                 return RedirectToAction("Login");
-            }
+            
+
+
+
+
         }
 
 
@@ -56,10 +81,60 @@ namespace _19_2.Controllers
         public IActionResult Profile()
         {
             ViewBag.UserName = HttpContext.Session.GetString("UserName");
-
             ViewBag.UserEmail = HttpContext.Session.GetString("UserEmail");
             ViewBag.UserPassword = HttpContext.Session.GetString("UserPassword");
+            ViewBag.UserPhone = HttpContext.Session.GetString("UserPhone");
+            ViewBag.UserAddress = HttpContext.Session.GetString("UserAddress");
+     
             return View();
         }
+
+        [HttpPost]
+        public IActionResult HandleEdit(string address, string phone)
+        {
+
+
+
+            HttpContext.Session.SetString("UserAddress", address);
+            HttpContext.Session.SetString("UserPhone", phone);
+
+            return RedirectToAction("Profile");
+        }
+
+
+        //public IActionResult ClearSession()
+        //{
+        //    HttpContext.Session.Clear(); 
+        //    return RedirectToAction("Profile");
+
+        //}
+        //public IActionResult RemoveSession()
+        //{
+        //    HttpContext.Session.Remove("UserName");
+
+        //    return RedirectToAction("Profile");
+
+        //}
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
+
+
+        public IActionResult Admin()
+        {
+
+            ViewBag.Email = HttpContext.Session.GetString("Email");
+            ViewBag.Password = HttpContext.Session.GetString("Password");
+
+            return View();
+        }                                                                                                                            
+
+
     }
+
+
+
 }
