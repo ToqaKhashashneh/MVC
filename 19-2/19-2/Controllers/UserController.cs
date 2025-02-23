@@ -89,17 +89,21 @@ namespace _19_2.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult HandleEdit(string address, string phone)
+
+        public IActionResult HandleEdit()
         {
+            // Process the form data here
+            // Example: Save changes, update database or session
+            //HttpContext.Session.SetString("UserName", name);
+            //HttpContext.Session.SetString("UserPhone", phone);
+            //HttpContext.Session.SetString("UserAddress", address);
 
-
-
-            HttpContext.Session.SetString("UserAddress", address);
-            HttpContext.Session.SetString("UserPhone", phone);
-
+            // Redirect after processing
             return RedirectToAction("Profile");
         }
+
+
+
 
 
         //public IActionResult ClearSession()

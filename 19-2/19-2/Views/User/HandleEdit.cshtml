@@ -1,4 +1,5 @@
 ﻿
+
 <!DOCTYPE html>
 
 <html>
@@ -132,40 +133,21 @@
                         <div class="text-center user-info">
                             <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
                         </div>
-                        <div class="user-info-list" style="text-align:center;">
+                        <form method="post" action="@Url.Action("HandleEdit", "User")">
+                            <label>Name:</label>
+                            <input type="text" name="name" value="@ViewBag.UserName" required />
 
-                            <div class="">
-                                <ul class="contacts-block list-unstyled">
-                                    <li class="contacts-block__item">
-                                        Name: @ViewBag.UserName
-                                    </li>
-                                    <li class="contacts-block__item">
-										Email: @ViewBag.UserEmail
-                                    </li>
-                                    <li class="contacts-block__item">
-                                        Password: @ViewBag.UserPassword
-                                    </li>
+                            <label>Email:</label>
+                            <input type="email" name="email" value="@ViewBag.UserEmail" required disabled />
 
-                                </ul>
+                            <label>Phone:</label>
+                            <input type="text" name="phone" value="@ViewBag.UserPhone" required />
 
-                                   <form method="post" action="~/User/HandleEdit">
-                                    <ul class="contacts-block list-unstyled">
+                            <label>Address:</label>
+                            <input type="text" name="address" value="@ViewBag.UserAddress" required />
 
-                                    <li class="contacts-block__item">
-                                            Phone: @ViewBag.UserPhone
-                                           
-
-
-                                    </li>
-                                    <li class="contacts-block__item">
-                                            Address: @ViewBag.UserAddress
-
-
-
-                                        </li>
-                                </ul>
-                                    <a href="/User/HandleEdit">Edit Profile</a>
-                                </form>
+                            <button type="submit">Save Changes</button>
+                        </form>
 
                                 <ul class="list-inline mt-4">
                                     <li class="list-inline-item mb-0">
@@ -190,9 +172,9 @@
                 </div>
             </div>
 
-            @* <a href="~/User/RemoveSession">Delete a session key</a> *@
-            @* <br> *@
-            @* <a href="~/User/ClearSession">Delete  session data</a> *@
+            <a href="~/User/RemoveSession">Delete a session key</a>
+            <br>
+            <a href="~/User/ClearSession">Delete  session data</a>
 
 
 

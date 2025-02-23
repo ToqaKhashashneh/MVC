@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Model_Lec1.Models.Department>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Department Name</th>
+            <th scope="col">Department Email</th>
+            <th scope="col">Department Budget</th>
+            <th scope="col">Department Location</th>
+        </tr>
+    </thead>
+    @* <tbody> *@
+    @*     @foreach(var item in Model) *@
+    @*     { *@
+    @*     <tr> *@
+    @*             <td>@item.Name</td> *@
+    @*             <td>@item.Email</td> *@
+    @*             <td>@item.Budget</td> *@
+    @*             <td>@item.Location</td> *@
+
+    @*     </tr> *@
+    @*     } *@
+
+    @* </tbody> *@
+
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Budget)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<a asp-controller="Department" asp-action="Create">Add New Department</a>
