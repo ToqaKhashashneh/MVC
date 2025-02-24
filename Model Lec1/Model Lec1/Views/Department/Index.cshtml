@@ -9,6 +9,9 @@
             <th scope="col">Department Email</th>
             <th scope="col">Department Budget</th>
             <th scope="col">Department Location</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+
         </tr>
     </thead>
     @* <tbody> *@
@@ -43,8 +46,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Location)
                 </td>
+                <td>
+                    <a asp-controller="Department" asp-action="Edit">Edit</a>
+                </td>
+                <td>
+                    <a asp-controller="Department" asp-action="Edit">Delete</a>
+                </td>
             </tr>
         }
+
 
     </tbody>
 </table>

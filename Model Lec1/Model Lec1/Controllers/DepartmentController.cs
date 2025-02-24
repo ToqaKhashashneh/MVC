@@ -51,5 +51,20 @@ namespace Model_Lec1.Controllers
 
 
 
+        public IActionResult Edit(int Id)
+        {
+            var dep = _context.Departments.Find(Id);
+            return View(dep);
+
+        }
+
+
+        [HttpPost]
+        public IActionResult Update(Department department)
+        {
+            _context.Departments.Update(department);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

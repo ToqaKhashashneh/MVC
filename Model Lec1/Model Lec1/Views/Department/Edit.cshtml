@@ -1,0 +1,27 @@
+﻿@model Model_Lec1.Models.Department
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" action="@Url.Action("Edit","Department")">
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-group">
+                <label>Last name</label>
+                <input type="text" class="form-control" name="LastName" placeholder=" Name" value="@Model.Name required>
+            </div>
+            <div class="form-group">
+                <label>First name</label>
+                <input type="text" class="form-control" name="FirstName" placeholder="first name" value="@Model.Email" required>
+            </div>
+            <div class="form-group">
+                <label>Staff No</label>
+                <input type="text" class="form-control" name="StaffNo" placeholder="staff no" value="@Model.Budget" required>
+            </div>
+            <div class="form-group">
+                <label>Designation</label>
+                <input type="text" class="form-control" name="Designation" placeholder="designation" value="@Model.Location" required>
+            </div>
+          
+            <button class="btn btn-success" type="submit">Update Department</button>
+        </form>
+    </div>
+</div>

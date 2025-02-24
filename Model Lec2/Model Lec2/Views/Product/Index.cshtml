@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Model_Lec2.Models.Product>
+
+<div class="d-flex flex-wrap gap-3 justify-content-start" style="padding-left: 15vw; padding-top:2vw;">
+
+    @foreach (var item in Model)
+    {
+
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" style="height:20vw;" src="@item.Image" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                <p class="card-text">@item.Description</p>
+
+                @* <a href=" @Url.Action("Details", "Product")" class="btn btn-primary">View Details</a> *@
+                @* <a href=" @Url.Action("Edit", "Product")" class="btn btn-warning">Edit</a> *@
+                @* <a href=" @Url.Action("Delete", "Product")" class="btn btn-danger">Delete</a> *@
+
+
+
+                <a asp-controller="Product" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">View details</a>
+                <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+
+
+            </div>
+        </div>
+    }
+</div>
+
+@* I can go to create page by a link or a button: *@
+
+@* Ask the coach, why if i put (asp-controller="Product") here it doesn't take me to the create page
+but if i remove it it works? *@
+
+
+<a  asp-action="Create"  class="btn btn-primary">Create Product</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
