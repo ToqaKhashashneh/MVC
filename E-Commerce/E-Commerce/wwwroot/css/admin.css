@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    background-color: #edd6de; /* Soft pink background */
+    color: #5c2b5a; /* Elegant deep plum */
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #f8bbd0; /* Light pink */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    border-right: 3px solid #f48fb1; /* Slightly darker pink for a chic border */
+}
+
+    /* Sidebar Links */
+    .sidebar .nav a {
+        display: block;
+        color: white; 
+        padding: 14px 20px;
+        text-decoration: none;
+        font-weight: 500;
+        border-bottom: 1px solid #f48fb1; /* Soft separator */
+    }
+
+        .sidebar .nav a:hover {
+            background-color: #f06292; /* Bold pink hover effect */
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Active Link */
+        .sidebar .nav a.active {
+            background-color: #ec407a; /* Vibrant pink */
+            font-weight: bold;
+            color: white;
+        }
+
+/* Sidebar Toggle Button */
+.toggle-btn {
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    background: #f06292;
+    padding: 12px;
+    text-align: center;
+    width: 100%;
+    display: block;
+    border-radius: 0 0 10px 10px;
+}
+
+    .toggle-btn:hover {
+        background: #d81b60; /* Deeper pink */
+    }
+
+/* Hide Sidebar by Default on Small Screens */
+@media (max-width: 768px) {
+    .sidebar {
+        left: -250px;
+    }
+
+    /* Show sidebar when checkbox is checked */
+    .sidebar-checkbox:checked ~ .sidebar {
+        left: 0;
+    }
+
+    /* Ensure content moves when sidebar opens */
+    .sidebar-checkbox:checked ~ .col {
+        margin-left: 250px;
+    }
+}
+
+/* Content Layout */
+.col {
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Footer */
+footer {
+    background-color: #f8bbd0;
+    color: #5c2b5a;
+    text-align: center;
+    padding: 12px;
+    font-weight: 500;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    border-top: 3px solid #f48fb1;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #f06292;
+    border: none;
+}
+
+    .btn-primary:hover {
+        background-color: #d81b60;
+    }
+
+/* Cards */
+.card {
+    border-radius: 10px;
+    border: 2px solid #f48fb1;
+    background-color: white;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    color: #5c2b5a;
+    font-weight: 600;
+}
+.add-product-btn {
+    margin-left: 20vw;
+    margin-top: -11vw;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #f06292; /* Stylish pink */
+    border: none;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+    .add-product-btn:hover {
+        background-color: #d81b60; /* A deeper pink on hover */
+        transform: scale(1.05);
+        text-decoration: none;
+    }
+
+
+/* Ensure content is properly aligned and does not overlap sidebar */
+.content-container {
+    margin-left: 260px; /* Adjust this to match the width of your sidebar */
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Fix sidebar issue on small screens */
+@media (max-width: 768px) {
+    .content-container {
+        margin-left: 0;
+    }
+}
+/* Sidebar should be full height */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh; /* Full height */
+    background: #37474F; /* Dark background */
+    overflow-y: auto; /* Prevent unnecessary scrolling */
+    padding-top: 20px;
+}
+
+/* Ensure content does not overlap sidebar */
+.content-container {
+    margin-left: 320px;
+    padding: 20px;
+    min-height: 100vh;
+    overflow: hidden;
+    width: 72vw;
+}
+}
+
+/* Prevent scrolling issues */
+body, html {
+    overflow-x: hidden; /* Stops horizontal scrolling */
+}
+
+/* Ensure cards fit correctly */
+.card {
+    border-radius: 12px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+    .card:hover {
+        transform: scale(1.03);
+    }
+
+
+/* Ensure all cards have equal height */
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensures the card takes full height */
+    border-radius: 12px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Make sure the card body expands */
+.card-body {
+    flex-grow: 1; /* Allows the content to stretch */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes content evenly */
+}
+
+    /* Ensures buttons stay at the bottom */
+    .card-body .d-flex {
+        margin-top: auto; /* Pushes buttons to bottom */
+    }
+
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Full width on small screens */
+        height: auto;
+        position: relative;
+    }
+
+    .content-container {
+        margin-left: 0; /* Reset margin */
+    }
+}

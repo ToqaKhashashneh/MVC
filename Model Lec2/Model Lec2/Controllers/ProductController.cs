@@ -27,7 +27,10 @@ namespace Model_Lec2.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
-
+            if (!ModelState.IsValid)
+            {
+                return View(product); // Return the view with validation errors
+            }
             _context.Add(product);
             _context.SaveChanges();
             return RedirectToAction("Index");
